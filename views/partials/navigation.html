@@ -38,6 +38,32 @@
     <a href="{{ url:site }}" class="uk-navbar-brand uk-visible-small">{{ settings:site_name }}</a>
     <div class="uk-navbar-flip">
         <ul class="uk-navbar-nav">
+            {{ if user:logged_in }}
+
+                <!-- This is the container enabling the JavaScript -->
+                <li class="uk-parent" data-uk-dropdown>
+
+                    <!-- This is the menu item toggling the dropdown -->
+                    <a href="" class="{{ class }}">
+                        {{ user:display_name }}
+                        <i class="uk-icon uk-icon-caret-down"></i>
+                    </a>
+
+                    <!-- This is the dropdown -->
+                    <div class="uk-dropdown uk-dropdown-navbar">
+                        <ul class="uk-nav uk-nav-navbar">
+                            {{ if user:has_cp_permissions }}
+                                <li><a href="{{ url:site uri='admin' }}" target="_blank">{{ helper:lang line="global:control-panel" }}</a></li>
+
+                                <li><a href="{{ url:site uri="users/logout" }}">Sign out</a>
+                            {{ endif }}
+                        </ul>
+                    </div>
+
+                </li>
+            {{ else }}
+                <li><a href="{{ url:site uri="users/login" }}">Sign in</a></li>
+            {{ endif }}
             <li>
                 <a href="{{ url:site uri="search" }}">
                 <i class="uk-icon uk-icon-search uk-icon-small"></i>
