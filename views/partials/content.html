@@ -1,0 +1,25 @@
+<div class="uk-container uk-container-center">
+	
+	<div class="uk-grid">
+		<div class="uk-width-1-1">
+			{{ session:messages success="uk-alert uk-alert-success" notice="uk-alert uk-alert" error="uk-alert uk-alert-danger" }}
+		</div>
+	</div>
+	
+	<ul class="uk-breadcrumb">
+		<li><a href="{{ url:site }}">Home</a></li>
+		{{ template:breadcrumbs }}
+		{{ if uri }}
+		<li>{{ url:anchor segments=uri title=name }}</li>
+		{{ else }}
+		<li class="uk-active">{{ name }}</li>
+		{{ endif }}
+		{{ /template:breadcrumbs }}
+	</ul>
+		
+	<div class="uk-grid">
+		<div class="uk-width-1-1">
+			{{ template:body }}
+		</div>
+	</div>
+</div>

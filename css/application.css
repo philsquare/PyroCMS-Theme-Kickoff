@@ -1,0 +1,34 @@
+/* Application Specific styles go here (if not using the LESS version). */
+
+
+
+
+/* Tablet and up */
+@media (min-width: 768px) {
+
+}
+
+/* Desktop and up */
+@media (min-width: 960px) {
+
+}
+
+/* Small only */
+@media (max-width: 480px) {
+
+}
+
+/* Tablet only */
+@media (min-width: 480px) and (max-width: 768px) {
+
+}
+
+/* Desktop only */
+@media (min-width: 769px) and (max-width: 1200px) {
+
+}
+
+/* Large devices only */
+@media (min-width: 1200px) {
+
+}

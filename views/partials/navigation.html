@@ -1,0 +1,81 @@
+<nav class="uk-navbar">
+    <a href="{{ url:site }}" class="uk-navbar-brand uk-hidden-small">{{ settings:site_name }}</a>
+    <ul class="uk-navbar-nav uk-hidden-small">
+        {{ navigation:links group="header" class="uk-active" }}
+
+        {{ if children }}
+
+        <!-- This is the container enabling the JavaScript -->
+        <li class="uk-parent" data-uk-dropdown>
+
+            <!-- This is the menu item toggling the dropdown -->
+            <a href="{{ url }}" class="{{ class }}">{{ title }}</a>
+
+            <!-- This is the dropdown -->
+            <div class="uk-dropdown uk-dropdown-navbar">
+                <ul class="uk-nav uk-nav-navbar">
+                    {{ children }}
+
+                    <li><a href="{{ url }}">{{ title }}</a></li>
+
+                    {{ /children }}
+                </ul>
+            </div>
+
+        </li>
+
+        {{ else }}
+
+        <li class="{{ class }}">
+            <a href="{{ url }}" class="{{ class }}">{{ title }}</a>
+        </li>
+
+        {{ endif }}
+
+        {{ /navigation:links }}
+    </ul>
+    <a href="#navigation" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>
+    <a href="{{ url:site }}" class="uk-navbar-brand uk-visible-small">{{ settings:site_name }}</a>
+    <div class="uk-navbar-flip">
+        <ul class="uk-navbar-nav">
+            <li>
+                <a href="{{ url:site uri="search" }}">
+                <i class="uk-icon uk-icon-search uk-icon-small"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div id="navigation" class="uk-offcanvas">
+    <div class="uk-offcanvas-bar">
+        <div class="uk-panel uk-text-center">
+            <a href="{{ url:site }}">{{ settings:site_name }}</a>
+        </div>
+        <ul class="uk-nav uk-nav-parent-icon uk-nav-offcanvas" data-uk-nav>
+            {{ navigation:links group="header" class="uk-active" }}
+
+            {{ if children }}
+
+            <li class="uk-parent">
+                <a href="#" class="{{ class }}">{{ title }}</a>
+                <ul class="uk-nav-sub">
+                    {{ children }}
+                    <li><a href="{{ url }}">{{ title }}</a></li>
+                    {{ /children }}
+                </ul>
+            </li>
+
+            {{ else }}
+
+            <li class="{{ class }}">
+                <a href="{{ url }}" class="{{ class }}">{{ title }}</a>
+            </li>
+
+            {{ endif }}
+
+            {{ /navigation:links }}
+
+        </ul>
+    </div>
+</div>
